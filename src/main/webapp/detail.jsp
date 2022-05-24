@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +11,10 @@
 <body>
 
   <div class="header">
-    <h1 class="site_logo"><a href="menu.html">商品管理システム</a></h1>
+    <h1 class="site_logo"><a href="menu.jsp">商品管理システム</a></h1>
     <div class="user">
-      <p class="user_name">佐藤さん、こんにちは</p>
-      <form class="logout_form" action="logout.html" method="get">
+      <p class="user_name">${sessionScope.loginUser.name}さん、こんにちは</p>
+      <form class="logout_form" action="logout.jsp" method="get">
         <button class="logout_btn" type="submit">
           <img src="images/ドアアイコン.png">ログアウト</button>
       </form>
@@ -25,7 +28,7 @@
       <div class="img_block">
         <img src="images/マッキー.png" class="product_img"><br>
       </div>
-      <form action="menu.html" method="get">
+      <form action="menu.jsp" method="get">
         <fieldset class="label-130 product_block">
           <p class="error">エラーメッセージ</p>
           <div>
@@ -55,8 +58,8 @@
         <div>
           <div class="btns">
             <input type="button" onclick="openModal()" value="削除" class="basic_btn">
-            <input type="button" onclick="location.href='./updateInput.html'" value="編集" class="basic_btn">
-            <input type="button" onclick="location.href='./menu.html'" value="戻る" class="cancel_btn">
+            <input type="button" onclick="location.href='./updateInput.jsp'" value="編集" class="basic_btn">
+            <input type="button" onclick="location.href='./menu.jsp'" value="戻る" class="cancel_btn">
           </div>
           <div id="modal">
             <p class="modal_message">削除しますか？</p>
