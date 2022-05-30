@@ -34,10 +34,11 @@
 		</div>
 
 		<hr>
-
-		<div class="btn">
-			<a class="basic_btn regist" href="insert.jsp">新規登録</a>
-		</div>
+		<c:if test="${sessionScope.loginUser.role == 1}">
+			<div class="btn">
+				<a class="basic_btn regist" href="insert.jsp">新規登録</a>
+			</div>
+		</c:if>
 		<p>
 			<c:if test="${not empty requestScope.msg}">
 				<c:out value="${requestScope.msg}" />

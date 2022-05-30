@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<c:if test="${empty sessionScope.loginUser}">
+	<meta http-equiv="Refresh" content="0;URL=index.jsp">
+</c:if>
 <title>商品詳細</title>
 <link href="css/commons.css" rel="stylesheet">
 </head>
@@ -56,8 +60,10 @@
         </fieldset>
         <div>
           <div class="btns">
+          <c:if test="${sessionScope.loginUser.role == 1}">
             <input type="button" onclick="openModal()" value="削除" class="basic_btn">
             <input type="button" onclick="location.href='./ToUpdateServlet?productId=${requestScope.product.productId}'" value="編集" class="basic_btn">
+          </c:if>
             <input type="button" onclick="location.href='./menu.jsp'" value="戻る" class="cancel_btn">
           </div>
           <div id="modal">
