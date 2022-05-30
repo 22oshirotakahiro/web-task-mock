@@ -31,34 +31,35 @@
     </div>
   
     <div class="form_body">
-      <p class="error">エラーメッセージ</p>
+      <p class="error">${requestScope.msg}</p>
   
-      <form action="menu.jsp" method="get">
+      <form action="RegisterServlet" method="get">
         <fieldset class="label-130">
           <div>
             <label class="required">商品ID</label>
-            <input type="text" name="loginId" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="productId" class="base-text">
+            <span class="error">${requestScope.CheckProductId}</span>
           </div>
           <div>
             <label class="required">商品名</label>
-            <input type="text" name="userName" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="productName" class="base-text">
+            <span class="error">${requestScope.CheckProductName}</span>
           </div>
           <div>
             <label class="required">単価</label>
-            <input type="text" name="tel" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="price" class="base-text">
+            <span class="error">${requestScope.CheckPrice}</span>
           </div>
           <div class="select_block">
             <label class="required">カテゴリ</label>
-            <select name="roleId" class="base-text">
+            <select name="categoryId" class="base-text">
               <option value="1">筆記具</option>
               <option value="2">紙製品</option>
               <option value="3">事務消耗品</option>
               <option value="4">オフィス機器</option>
               <option value="5">雑貨</option>
             </select>
+            <span class="error">${requestScope.CheckCategoryId}</span>
           </div>
           <div>
             <label>商品説明</label>
@@ -66,8 +67,8 @@
           </div>
           <div>
             <label>画像</label>
-            <input type="file" name="file">
-            <span class="error">エラーメッセージ</span>
+            <input type="file" name="imagePath">
+            <span class="error">${requestScope.CheckImagePath}</span>
           </div>
         </fieldset>
         <div class="btns">

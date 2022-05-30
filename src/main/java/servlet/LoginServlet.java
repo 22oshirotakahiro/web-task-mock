@@ -63,6 +63,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("loginUser", user);
 				ProductService ps = new ProductService();
+				session.setAttribute("result", ps.getAll());
 				request.getRequestDispatcher("menu.jsp").forward(request, response);
 				
 			}

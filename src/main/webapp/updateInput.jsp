@@ -24,44 +24,45 @@
 
   <div class="insert">
     <div class="form_body">
-      <p class="error">エラーメッセージ</p>
+      <p class="error">${requestScope.msg}</p>
 
-      <form action="menu.jsp" method="get">
+      <form action="UpdateServlet" method="get">
         <fieldset class="label-130">
           <div>
+            <input type="hidden" name="currentProductId" value="${requestScope.product.productId}">
+          </div>
+          <div>
             <label>商品ID</label>
-            <input type="text" name="loginId" value="10001" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="productId" value="${requestScope.product.productId}" class="base-text">
+            <span class="error">${requestScope.CheckProductId}</span>
           </div>
           <div>
             <label>商品名</label>
-            <input type="text" name="userName" value="マッキー(黒)" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="productName" value="${requestScope.product.name}" class="base-text">
+            <span class="error">${requestScope.CheckProductName}</span>
           </div>
           <div>
             <label>単価</label>
-            <input type="text" name="tel" value="165" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="price" value="${requestScope.product.price}" class="base-text">
+            <span class="error">${requestScope.CheckPrice}</span>
           </div>
           <div>
-            <label>カテゴリ</label> <select name="roleId" class="base-text">
-              <option value="1" selected>ペン</option>
-              <option value="2">ノート</option>
-              <option value="3">消しゴム</option>
-              <option value="4">のり</option>
+            <label>カテゴリ</label> <select name="categoryId" class="base-text">
+              <option value="1">筆記具</option>
+              <option value="2">紙製品</option>
+              <option value="3">事務消耗品</option>
+              <option value="4">オフィス機器</option>
+              <option value="5">雑貨</option>
             </select>
           </div>
           <div>
             <label>商品説明</label>
-            <textarea name="description" class="base-text">
-ゼブラ株式会社
-線の太さ：太6.0mm、細1.5～2.0mm
-            </textarea>
+            <textarea name="description" class="base-text">${requestScope.product.description}</textarea>
           </div>
           <div>
             <label>画像</label>
-            <input type="file" name="file">
-            <span class="error">エラーメッセージ</span>
+            <input type="file" name="imagePath">
+            <span class="error">${requestScope.CheckImagePath}</span>
           </div>
         </fieldset>
           <div class="btns">

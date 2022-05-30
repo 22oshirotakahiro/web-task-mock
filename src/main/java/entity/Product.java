@@ -3,29 +3,49 @@ package entity;
 public class Product {
 	
 	private int id;
-	private String productId;
+	private int productId;
 	private int categoryId;
 	private String name;
 	private int price;
-	private String imagePath;
 	private String description;
+	private String imagePath;
 	private String createdAt;
 	private String updatedAt;
 	private Category ctgry;
 	
-	public Product(String productId, String name, int price, String categoryName) {
+	public Product(int productId, String name, int price, int categoryId) {
 		this.productId = productId;
 		this.name = name;
 		this.price = price;
-		this.categoryId = 0;
+		this.categoryId = categoryId;
 		
 	}
 	
-	public Product(String productId, String name, int price, int categoryId, String categoryName) {
+	public Product(int productId, String name, int price, String description, int categoryId, String categoryName) {
 		this.productId = productId;
 		this.name = name;
 		this.price = price;
+		this.description = description;
 		this.ctgry = new Category(categoryId, categoryName);
+		
+	}
+	
+	public Product(int productId, String name, int price, int categoryId, String description) {
+		this.productId = productId;
+		this.name = name;
+		this.price = price;
+		this.categoryId = categoryId;
+		this.description = description;
+		
+	}
+	
+	public Product(int productId, String name, int price, int categoryId, String description, String imagePath) {
+		this.productId = productId;
+		this.name = name;
+		this.price = price;
+		this.categoryId = categoryId;
+		this.description = description;
+		this.imagePath = imagePath;
 		
 	}
 	
@@ -37,11 +57,11 @@ public class Product {
 		this.id = id;
 	}
 
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 

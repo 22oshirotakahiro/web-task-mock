@@ -26,39 +26,38 @@
   <div class="update">
     <div class="form_body">
       <div class="img_block">
-        <img src="images/マッキー.png" class="product_img"><br>
+        <img src="${requestScope.product.imagePath}" class="product_img"><br>
       </div>
-      <form action="menu.jsp" method="get">
+      <form action="DeleteServlet?productId=${requestScope.product.productId}" method="get">
         <fieldset class="label-130 product_block">
-          <p class="error">エラーメッセージ</p>
+          <p class="error">${requestScope.msg}</p>
           <div>
             <label>商品ID</label>
-            <input type="text" name="loginId" value="10001" readonly class="base-text">
+            <input type="text" name="productId" value="${requestScope.product.productId}" readonly class="base-text">
           </div>
           <div>
             <label>商品名</label>
-            <input type="text" name="userName" value="マッキー(黒)" readonly class="base-text">
+            <input type="text" name="productName" value="${requestScope.product.name}" readonly class="base-text">
           </div>
           <div>
             <label>単価</label>
-            <input type="text" name="tel" value="165" readonly class="base-text">
+            <input type="text" name="price" value="${requestScope.product.price}" readonly class="base-text">
           </div>
           <div>
             <label>カテゴリ</label>
-            <input type="text" name="roleName" value="ペン" readonly class="base-text">
+            <input type="text" name="category" value="${requestScope.product.ctgry.name}" readonly class="base-text">
           </div>
           <div>
             <label>商品説明</label>
             <textarea name="description" readonly class="base-text" style="background-color: rgb(209, 209, 209);">
-ゼブラ株式会社
-線の太さ：太6.0mm、細1.5～2.0mm
+				${requestScope.product.description}
             </textarea>
           </div>
         </fieldset>
         <div>
           <div class="btns">
             <input type="button" onclick="openModal()" value="削除" class="basic_btn">
-            <input type="button" onclick="location.href='./updateInput.jsp'" value="編集" class="basic_btn">
+            <input type="button" onclick="location.href='./ToUpdateServlet?productId=${requestScope.product.productId}'" value="編集" class="basic_btn">
             <input type="button" onclick="location.href='./menu.jsp'" value="戻る" class="cancel_btn">
           </div>
           <div id="modal">
