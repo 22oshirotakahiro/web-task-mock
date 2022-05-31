@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.Connection;
 import java.util.List;
 
 import dao.ProductDao;
@@ -13,38 +14,65 @@ public class ProductService {
 	}
 	
 	public List<Product> getAll() {
-		ProductDao dao = new ProductDao(DbUtil.getConnection());
-		return dao.findAll();
+		try (Connection con = DbUtil.getConnection()) {
+			ProductDao dao = new ProductDao(con);
+			return dao.findAll();
+			
+		} catch (Exception e) {
+			return null;
+		}
 		
 	}
 	
 	public List<Product> getLikeKeyWord(String keyWord) {
-		ProductDao dao = new ProductDao(DbUtil.getConnection());
-		return dao.findLikeKeyWord(keyWord);
-		
+		try (Connection con = DbUtil.getConnection()) {
+			ProductDao dao = new ProductDao(con);
+			return dao.findLikeKeyWord(keyWord);
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	public Product getByProductId(int productId) {
-		ProductDao dao = new ProductDao(DbUtil.getConnection());
-		return dao.findByProductId(productId);
+		try (Connection con = DbUtil.getConnection()) {
+			ProductDao dao = new ProductDao(con);
+			return dao.findByProductId(productId);
+			
+		} catch (Exception e) {
+			return null;
+		}
 
 	}
 	
 	public int insert(Product product) {
-		ProductDao dao = new ProductDao(DbUtil.getConnection());
-		return dao.insert(product);
+		try (Connection con = DbUtil.getConnection()) {
+			ProductDao dao = new ProductDao(con);
+			return dao.insert(product);
+			
+		} catch (Exception e) {
+			return 0;
+		}
 		
 	}
 	
 	public int delete(int productId) {
-		ProductDao dao = new ProductDao(DbUtil.getConnection());
-		return dao.delete(productId);
+		try (Connection con = DbUtil.getConnection()) {
+			ProductDao dao = new ProductDao(con);
+			return dao.delete(productId);
+			
+		} catch (Exception e) {
+			return 0;
+		}
 		
 	}
 	
 	public int update(int productId, Product product) {
-		ProductDao dao = new ProductDao(DbUtil.getConnection());
-		return dao.update(productId, product);
+		try (Connection con = DbUtil.getConnection()) {
+			ProductDao dao = new ProductDao(con);
+			return dao.update(productId, product);
+		} catch (Exception e) {
+			return 0;
+		}
 		
 	}
 	
